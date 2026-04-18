@@ -1,17 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import MovieList from './components/MovieList'
+import {Routes, Route} from 'react-router-dom'
+
+function Home() {
+  return <div>Welcome to IMDb!</div>;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      
-      <div>
-        Welcome to IMDb!
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/movielist/*" element={<MovieList />}/>
+      </Routes>
     </>
   )
 }
