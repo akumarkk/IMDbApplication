@@ -1,9 +1,18 @@
 import './App.css'
 import MovieList from './components/MovieList'
 import {Routes, Route} from 'react-router-dom'
+import WatchList from './components/WatchList';
+import Header from './components/Header'
 
 function Home() {
-  return <div>Welcome to IMDb!</div>;
+  
+  return(
+    <div className='home'>
+      <Header />
+     <div>Welcome to IMDb!</div>;
+     
+    </div>
+  )
 }
 
 function App() {
@@ -12,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/movielist/*" element={<MovieList />}/>
+        <Route path='/watchlist' element={<WatchList/>}></Route>
       </Routes>
     </>
   )
