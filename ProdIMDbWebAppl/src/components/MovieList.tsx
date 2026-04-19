@@ -1,5 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Movie from "./Movie";
+import Popular from "./Popular";
+import TopRated from "./TopRated";
 
 const MovieList = () => {
     return (
@@ -10,13 +12,15 @@ const MovieList = () => {
 
             <nav>
                 <ul>
-                    <li><Link to="/yash/movielist/1">Movie 1</Link></li>
-                    <li><Link to="/movielist/2">Movie 2</Link></li>
+                    <li><Link to="1">Movie 1</Link></li>
+                    <li><Link to="2">Movie 2</Link></li>
                 </ul>
             </nav>
 
             <Routes>
                 <Route path=":movieId" element={<Movie />} />
+                <Route path="popular" element={<Popular />} />
+                <Route path="top-rated" element={<TopRated />} />
             </Routes>
         </div>
     )
