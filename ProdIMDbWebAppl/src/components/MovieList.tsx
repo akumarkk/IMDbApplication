@@ -10,7 +10,7 @@ const MovieList = () => {
 
             <nav>
                 <ul>
-                    <li><Link to="/movielist/1">Movie 1</Link></li>
+                    <li><Link to="/yash/movielist/1">Movie 1</Link></li>
                     <li><Link to="/movielist/2">Movie 2</Link></li>
                 </ul>
             </nav>
