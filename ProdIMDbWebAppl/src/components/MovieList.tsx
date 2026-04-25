@@ -2,8 +2,21 @@ import { Routes, Route, Link } from "react-router-dom";
 import Movie from "./Movie";
 import Popular from "./Popular";
 import TopRated from "./TopRated";
+import { useEffect, useState } from "react";
 
 const MovieList = () => {
+    const [movies, setMovies] = useState([]);
+
+    const fetchMovies = () => {
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=YOUR_API_KEY_HERE")
+        .then(res => res.json())
+        .then(data => setMovies(data));
+    }
+
+    useEffect(() => {
+        fetchMovies();
+    }, []);
+
     return (
         <div>
             <h4>
