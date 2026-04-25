@@ -8,9 +8,12 @@ const MovieList = () => {
     const [movies, setMovies] = useState([]);
 
     const fetchMovies = () => {
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=YOUR_API_KEY_HERE")
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_MOVIE_API_KEY}`)
         .then(res => res.json())
-        .then(data => setMovies(data));
+        .then(data => {
+            console.log(data);
+            setMovies(data.results)
+    });
     }
 
     useEffect(() => {
@@ -23,15 +26,18 @@ const MovieList = () => {
                 MovieList
             </h4>
 
-            <nav>
-                <ul>
-                    <li><Link to="1">Movie 1</Link></li>
-                    <li><Link to="2">Movie 2</Link></li>
-                </ul>
-            </nav>
+            <div className="movieList">
+                {movies.map((movie: any, idx: number) => {
+                    return (
+                        <Link to={`/${movie.id}`} key={idx}>
+                            <Movie {...movie}></Movie>
+                        </Link>
+                    )
+                })}
+            </div>
 
             <Routes>
-                <Route path=":movieId" element={<Movie />} />
+                {/* <Route path=":movieId" element={<Movie />} /> */}
                 <Route path="popular" element={<Popular />} />
                 <Route path="top-rated" element={<TopRated />} />
             </Routes>
