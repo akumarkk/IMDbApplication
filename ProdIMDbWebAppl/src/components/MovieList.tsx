@@ -1,7 +1,5 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Movie from "./Movie";
-import Popular from "./Popular";
-import TopRated from "./TopRated";
 import { useEffect, useState } from "react";
 
 const MovieList = () => {
@@ -29,18 +27,12 @@ const MovieList = () => {
             <div className="movieList">
                 {movies.map((movie: any, idx: number) => {
                     return (
-                        <Link to={`/${movie.id}`} key={idx}>
+                        <Link to={`/movie/${movie.id}`} key={idx}>
                             <Movie {...movie}></Movie>
                         </Link>
                     )
                 })}
             </div>
-
-            <Routes>
-                {/* <Route path=":movieId" element={<Movie />} /> */}
-                <Route path="popular" element={<Popular />} />
-                <Route path="top-rated" element={<TopRated />} />
-            </Routes>
         </div>
     )
 

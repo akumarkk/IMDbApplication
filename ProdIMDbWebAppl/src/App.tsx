@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom'
 import WatchList from './components/WatchList';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import MovieDetails from './components/MovieDetails';
 
 function Home() {
   
@@ -25,11 +26,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/movielist/*" element={<MovieList />}/>
+        <Route path="/movie/:movieId" element={<MovieDetails />} />
         <Route path="/watchlist/*" element={<WatchList />}></Route>
       </Routes>
       <Footer/>
     </>
   )
 }
+
+export default App
 
 export default App

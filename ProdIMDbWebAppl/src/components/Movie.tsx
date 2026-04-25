@@ -1,5 +1,3 @@
-import { useParams } from 'react-router-dom';
-
 interface MovieProps {
     title: string;
     poster_path: string;
@@ -7,8 +5,6 @@ interface MovieProps {
 }
 
 function Movie({ title, poster_path, overview }: MovieProps) {
-  const { movieId } = useParams();
-
   return (
     <div>
       <h2>{title}</h2>
