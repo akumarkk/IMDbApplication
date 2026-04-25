@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
+import './MovieListStyles.css';
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ const MovieList = () => {
                 MovieList
             </h4>
 
-            <div className="movieList">
+            <div className="movie-list">
                 {movies.map((movie: any, idx: number) => {
                     return (
                         <Link to={`/movie/${movie.id}`} key={idx}>

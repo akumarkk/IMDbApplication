@@ -1,3 +1,5 @@
+import './Movie.css';
+
 interface MovieProps {
     title: string;
     poster_path: string;
@@ -6,10 +8,12 @@ interface MovieProps {
 
 function Movie({ title, poster_path, overview }: MovieProps) {
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="movie">
       <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
-      <p>{overview}</p>
+      <div className="movie-info">
+        <h3>{title}</h3>
+        <p>{overview}</p>
+      </div>
     </div>
   );
 }
