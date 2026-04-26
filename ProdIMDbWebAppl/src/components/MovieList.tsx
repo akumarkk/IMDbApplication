@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
 import './MovieListStyles.css';
+import Pagination from "./Pagination";
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
@@ -34,6 +35,7 @@ const MovieList = () => {
                     )
                 })}
             </div>
+            <Pagination/>
         </div>
     )
 

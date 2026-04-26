@@ -18,6 +18,11 @@
   /* width: 100%; */
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .header{
   height: 60px;
   background-color: bisque;
