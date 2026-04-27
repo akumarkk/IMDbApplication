@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
 import './MovieListStyles.css';
@@ -6,19 +6,23 @@ import Pagination from "./Pagination";
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
+    const [totalPages, setTotalPages] = useState(0);
+    const { page } = useParams();
+    const currentPage = page ? parseInt(page, 10) : 1;
 
-    const fetchMovies = () => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_MOVIE_API_KEY}`)
+    const fetchMovies = (pageNum: number) => {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&page=${pageNum}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            setMovies(data.results)
+            setMovies(data.results);
+            setTotalPages(data.total_pages);
     });
     }
 
     useEffect(() => {
-        fetchMovies();
-    }, []);
+        fetchMovies(currentPage);
+    }, [currentPage]);
 
     return (
         <div>
@@ -35,7 +39,7 @@ const MovieList = () => {
                     )
                 })}
             </div>
-            <Pagination/>
+            <Pagination currentPage={currentPage} totalPages={totalPages} />
         </div>
     )
 

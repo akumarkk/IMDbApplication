@@ -6,7 +6,7 @@ const Header = () => {
         <nav className="header">
             <ul className="header">
                 <li className="dropdown">
-                    <Link to="/movielist">Movies</Link>
+                    <Link to="/movielist/page/1">Movies</Link>
                     <ul className="dropdown-content">
                         <li><Link to="/movielist/popular">Popular</Link></li>
                         <li><Link to="/movielist/top-rated">Top Rated</Link></li>
